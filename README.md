@@ -1,6 +1,6 @@
 # greetings README
 
-VSCode extension to get daily greetings and motivational messages
+This is the README for your extension "greetings". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 
