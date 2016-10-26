@@ -1,7 +1,7 @@
 {
     "name": "greetings",
     "displayName": "greetings",
-    "description": "",
+    "description": "VSCode extension for greetings",
     "version": "0.0.1",
     "publisher": "AkashGutha",
     "engines": {
