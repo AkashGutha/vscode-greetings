@@ -1,3 +1,3 @@
-# greetings 
+# Greetings 
 
-VSCode extension for daily greetings.
+VSCode extension for daily greetings and quotes.
