@@ -1,12 +1,12 @@
 {
-    "hello": [
+    "greets": [
         "Hello Coder!",
         "Hello Programmer!",
         "Hello Geek!",
         "Hello TechGeek!",
         "Hello Coder!"
     ],
-    "wellwish": [
+    "wishes": [
         "Have a great day ahead.",
         "Have a wonderful day.",
         "Happy programming.",

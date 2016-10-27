@@ -18,6 +18,9 @@
         "commands": [{
             "command": "extension.sayHello",
             "title": "Hello World"
+        },{
+            "command": "extension.greet",
+            "title": "Greet"
         }]
     },
     "scripts": {
