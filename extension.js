@@ -11,21 +11,27 @@ let unirest = require('unirest');
 // your extension is activated the very first time the command is executed
 function activate(context) {
 
-    // These code snippets use an open-source library. http://unirest.io/nodejs
-    unirest.post("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=<required>")
-        .header("X-Mashape-Key", "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
-        .header("Content-Type", "application/x-www-form-urlencoded")
-        .header("Accept", "application/json")
-        .end(function (result) {
-            console.log(result.status, result.headers, result.body);
-        });
-
     let greet = vscode.commands.registerCommand('extension.greet', function () {
         // The code you place here will be executed every time your command is executed
+
+        // These code snippets use an open-source library. http://unirest.io/nodejs
+        unirest.post("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous")
+            .header("X-Mashape-Key", "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
+            .header("Content-Type", "application/x-www-form-urlencoded")
+            .header("Accept", "application/json")
+            .end(function (result) {
+                console.log(result);
+                console.log(result.status, result.headers, result.body);
+                vscode.window.showInformationMessage(result.body);
+            });
+
+        const item = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, 0);
+        item.text = 'akash';
+        item.show();
+
         //let randomGreet = Math.floor(Math.random() * greetings.greets.length);
         //let randomWish = Math.floor(Math.random() * greetings.wishes.length);
-        // Display a message box to the user
-        vscode.window.showInformationMessage( /*randomGreet + ' ' + randomWish*/ 'asklsdajflk');
+
     });
 
     context.subscriptions.push(greet);
