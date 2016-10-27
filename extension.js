@@ -4,14 +4,14 @@ let vscode = require('vscode');
 let unirest = require('unirest');
 
 let greetings = {
-    "greets": [
-        "Hello Coder!", "Hello Programmer!", "Hello Geek!", "Hello TechGeek!",
-        "Hello Coder!"
-    ],
-    "wishes": [
-        "Have a great day ahead.", "Have a wonderful day.", "Happy programming.",
-        "Have a marvelous day."
-    ]
+  "greets": [
+    "Hello Coder!", "Hello Programmer!", "Hello Geek!", "Hello TechGeek!",
+    "Hello Coder!"
+  ],
+  "wishes": [
+    "Have a great day ahead.", "Have a wonderful day.", "Happy programming.",
+    "Have a marvelous day."
+  ]
 };
 
 // this method is called when your extension is activated
@@ -24,60 +24,52 @@ function activate(context) {
         let content = "";
 
         // These code snippets use an open-source library. http://unirest.io/nodejs
-        if (hostReachable()) {
-            unirest
-                .post(
-                "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous")
-                .header(
-                "X-Mashape-Key",
-                "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .header("Accept", "application/json")
-                .end(function (result) {
-                    if (typeof result.error === 'object') {
-                        content = getRandom();
-                    } else
-                        content = JSON.parse(result.body).quote;
+        require('dns').resolve('www.google.com', function (err) {
+            if (err) {
+                content = getRandom();
+                // setStatusBarItem(content);
+                vscode.window.setStatusBarMessage(content, 30000);
+            } else
+                unirest
+                    .post(
+                    "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous")
+                    .header(
+                    "X-Mashape-Key",
+                    "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .header("Accept", "application/json")
+                    .end(function (result) {
+                        if (typeof result.error === 'object')
+                            content = getRandom();
+                        else
+                            content = JSON.parse(result.body).quote;
+                        // setStatusBarItem(content);
+                        vscode.window.setStatusBarMessage(content, 30000);
+                    });
+        });
 
-                });
-        } else {
-            content = getRandom();
-            setStatusBarItem(content);
-        }
-
-
+        context.subscriptions.push(greet);
     });
+}  
+  exports.activate = activate;
 
-    context.subscriptions.push(greet);
-}
-exports.activate = activate;
-
-// this method is called when your extension is deactivated
-function deactivate() { }
-exports.deactivate = deactivate;
+  // this method is called when your extension is deactivated
+  function deactivate() {}
+  exports.deactivate = deactivate;
 
 
-// set status bar item
-function setStatusBarItem(content) {
+  // set status bar item
+  function setStatusBarItem(content) {
     let item =
         vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, -100);
     item.text = content + '   $(sync)';
     item.show();
-}
-// get random content
-function getRandom() {
-    let randomGreet = Math.floor(Math.random() * greetings.greets.length);
-    let randomWish = Math.floor(Math.random() * greetings.wishes.length);
+  }
+  // get random content
+  function getRandom() {
+    let randomGreet =
+        greetings.greets[Math.floor(Math.random() * greetings.greets.length)];
+    let randomWish =
+        greetings.wishes[Math.floor(Math.random() * greetings.wishes.length)];
     return randomGreet + " " + randomWish;
-}
-
-// check for internet connection.
-function hostReachable() {
-    require('dns').resolve('www.google.com', function (err) {
-        if (err) {
-            return false;
-        } else {
-            return true;
-        }
-    });
-}
+  }
