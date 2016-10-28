@@ -21,7 +21,7 @@ function activate(context) {
 
 
     // register the command to be called from command palette.
-    vscode.commands.registerCommand('extension.greet', greet);
+    vscode.commands.registerCommand('extension.greet', greet());
 
     // greet function which gets the data and sets the status bar message.
     function greet() {
