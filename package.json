@@ -1,5 +1,5 @@
 {
-    "name": "greetings",
+    "name": "Greetings",
     "displayName": "Greetings",
     "description": "VSCode extension for greetings and quotes",
     "version": "0.0.3",
@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/AkashGutha/vscode-greetings"
     },
-    "icon": "Greeting.png",
+    "icon": "Greeting-128.png",
     "galleryBanner": {
         "color": "#84bd12",
         "theme": "dark"
