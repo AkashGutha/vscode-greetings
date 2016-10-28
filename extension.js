@@ -4,23 +4,31 @@ let vscode = require('vscode');
 let unirest = require('unirest');
 
 let greetings = {
-  "greets": [
-    "Hello Coder!", "Hello Programmer!", "Hello Geek!", "Hello TechGeek!",
-    "Hello Coder!"
-  ],
-  "wishes": [
-    "Have a great day ahead.", "Have a wonderful day.", "Happy programming.",
-    "Have a marvelous day."
-  ]
+    "greets": [
+        "Hi Coder!", "Hi Programmer!", "Hi Geek!", "Hi TechGeek!",
+        "Hi Coder!"
+    ],
+    "wishes": [
+        "Have a great day ahead.", "Have a wonderful day.", "Happy programming.",
+        "Have a marvelous day."
+    ]
 };
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
-    let greet = vscode.commands.registerCommand('extension.greet', function () {
+
+    //call for the first time vscode is activated.
+    greet();
+
+    // register the command to be called from command palette.
+    vscode.commands.registerCommand('extension.greet', greet);
+
+    // greet function which gets the data and sets the status bar message.
+    function greet() {
         // The code you place here will be executed every time your command is
         // executed
-
+        console.log('activated');
         let content = "";
 
         // These code snippets use an open-source library. http://unirest.io/nodejs
@@ -28,7 +36,7 @@ function activate(context) {
             if (err) {
                 content = getRandom();
                 // setStatusBarItem(content);
-                vscode.window.setStatusBarMessage(content, 30000);
+                vscode.window.setStatusBarMessage(content, 15000);
             } else
                 unirest
                     .post(
@@ -44,32 +52,24 @@ function activate(context) {
                         else
                             content = JSON.parse(result.body).quote;
                         // setStatusBarItem(content);
-                        vscode.window.setStatusBarMessage(content, 30000);
+                        vscode.window.setStatusBarMessage(content, 15000);
                     });
         });
 
         context.subscriptions.push(greet);
-    });
-}  
-  exports.activate = activate;
+    }
+}
+exports.activate = activate;
 
-  // this method is called when your extension is deactivated
-  function deactivate() {}
-  exports.deactivate = deactivate;
+// this method is called when your extension is deactivated
+function deactivate() { }
+exports.deactivate = deactivate;
 
-
-  // set status bar item
-  function setStatusBarItem(content) {
-    let item =
-        vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left, -100);
-    item.text = content + '   $(sync)';
-    item.show();
-  }
-  // get random content
-  function getRandom() {
+// get random content
+function getRandom() {
     let randomGreet =
         greetings.greets[Math.floor(Math.random() * greetings.greets.length)];
     let randomWish =
         greetings.wishes[Math.floor(Math.random() * greetings.wishes.length)];
     return randomGreet + " " + randomWish;
-  }
+}
