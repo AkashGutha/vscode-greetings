@@ -19,8 +19,6 @@ let greetings = {
 // your extension is activated the very first time the command is executed
 function activate(context) {
 
-    //call for the first time vscode is activated.
-    greet();
 
     // register the command to be called from command palette.
     vscode.commands.registerCommand('extension.greet', greet);
@@ -32,7 +30,7 @@ function activate(context) {
 
         let content = "";
         let dns = require('dns');
-        
+
         dns.resolve('www.google.com', function (err) {
             if (err) {
                 content = getRandom();
@@ -63,6 +61,10 @@ function activate(context) {
 
         context.subscriptions.push(content);
         context.subscriptions.push(dns);
+
+        //call for the first time vscode is activated.
+        greet();
+
     }
 }
 exports.activate = activate;
