@@ -24,14 +24,13 @@
         "Other"
     ],
     "activationEvents": [
-        "*",
-        "onCommand:extension.greet"
+        "*"
     ],
     "contributes": {
         "commands": [
             {
                 "command": "extension.greet",
-                "title": "Greet"
+                "title": "Greet or Quote"
             }
         ]
     },

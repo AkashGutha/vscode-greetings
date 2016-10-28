@@ -27,8 +27,7 @@ function activate(context) {
 
     // greet function which gets the data and sets the status bar message.
     function greet() {
-        // The code you place here will be executed every time your command is
-        // executed
+        // The code you place here will be executed every time your command is executed
         console.log('activated');
 
         let content = "";
