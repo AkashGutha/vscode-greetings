@@ -5,12 +5,13 @@ let unirest = require('unirest');
 
 let greetings = {
     "greets": [
-        "Hi Coder!", "Hi Programmer!", "Hi Geek!", "Hi TechGeek!",
-        "Hi Coder!"
+        "Hi Coder!", "Hi Programmer!", "Hi Geek!", "Hi Techie!",
+        "Hi Coder!", "Hello Coder!", "Hello Programmer!", "Hello Geek!", "Hello Techie!",
+        "Hello Coder!"
     ],
     "wishes": [
-        "Have a great day ahead.", "Have a wonderful day.", "Happy programming.",
-        "Have a marvelous day."
+        "Have a great day ahead.", "Have an awesome coding day.", "Happy programming.",
+        "Have a great day."
     ]
 };
 
@@ -32,7 +33,7 @@ function activate(context) {
         let content = "";
 
         // These code snippets use an open-source library. http://unirest.io/nodejs
-        require('dns').resolve('www.google.com', function (err) {
+        require('dns').resolve('www.google.com', function(err) {
             if (err) {
                 content = getRandom();
                 // setStatusBarItem(content);
@@ -46,7 +47,7 @@ function activate(context) {
                     "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
                     .header("Content-Type", "application/x-www-form-urlencoded")
                     .header("Accept", "application/json")
-                    .end(function (result) {
+                    .end(function(result) {
                         if (typeof result.error === 'object')
                             content = getRandom();
                         else
