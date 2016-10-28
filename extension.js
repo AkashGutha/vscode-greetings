@@ -33,10 +33,11 @@ function activate(context) {
         let content = "";
 
         // These code snippets use an open-source library. http://unirest.io/nodejs
-        require('dns').resolve('www.google.com', function(err) {
+        require('dns').resolve('www.google.com', function (err) {
             if (err) {
                 content = getRandom();
-                // setStatusBarItem(content);
+                
+                //set status bar messgae
                 vscode.window.setStatusBarMessage(content, 15000);
             } else
                 unirest
@@ -47,12 +48,13 @@ function activate(context) {
                     "lNzJ60W1wfmshdbNCHarQVa2yOzYp1GCICRjsnsIhFM5zUuokz")
                     .header("Content-Type", "application/x-www-form-urlencoded")
                     .header("Accept", "application/json")
-                    .end(function(result) {
+                    .end(function (result) {
                         if (typeof result.error === 'object')
                             content = getRandom();
                         else
                             content = JSON.parse(result.body).quote;
-                        // setStatusBarItem(content);
+
+                        //set status bar messgae
                         vscode.window.setStatusBarMessage(content, 15000);
                     });
         });
