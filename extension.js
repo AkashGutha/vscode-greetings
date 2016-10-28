@@ -30,16 +30,18 @@ function activate(context) {
         // The code you place here will be executed every time your command is
         // executed
         console.log('activated');
-        let content = "";
 
-        // These code snippets use an open-source library. http://unirest.io/nodejs
-        require('dns').resolve('www.google.com', function (err) {
+        let content = "";
+        let dns = require('dns');
+        
+        dns.resolve('www.google.com', function (err) {
             if (err) {
                 content = getRandom();
-                
+
                 //set status bar messgae
                 vscode.window.setStatusBarMessage(content, 15000);
-            } else
+            } else {
+                // These code snippets use an open-source library. http://unirest.io/nodejs
                 unirest
                     .post(
                     "https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous")
@@ -57,9 +59,11 @@ function activate(context) {
                         //set status bar messgae
                         vscode.window.setStatusBarMessage(content, 15000);
                     });
+            }
         });
 
-        context.subscriptions.push(greet);
+        context.subscriptions.push(content);
+        context.subscriptions.push(dns);
     }
 }
 exports.activate = activate;

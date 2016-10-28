@@ -8,7 +8,7 @@
         "type": "git",
         "url": "https://github.com/AkashGutha/vscode-greetings"
     },
-    "icon": "Greeting-128.png",
+    "icon": "images/Greeting-128.png",
     "galleryBanner": {
         "color": "#84bd12",
         "theme": "dark"
