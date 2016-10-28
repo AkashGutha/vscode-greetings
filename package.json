@@ -27,7 +27,6 @@
         "*",
         "onCommand:extension.greet"
     ],
-    "main": "./extension",
     "contributes": {
         "commands": [
             {
@@ -36,6 +35,7 @@
             }
         ]
     },
+    "main": "./extension",
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
