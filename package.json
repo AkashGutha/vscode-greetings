@@ -1,50 +1,51 @@
 {
-    "name": "greetings",
-    "displayName": "Greetings and Quotes",
-    "description": "VSCode extension for greetings and quotes",
-    "version": "0.1.7",
-    "publisher": "AkashGutha",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AkashGutha/vscode-greetings"
-    },
-    "icon": "images/Greeting-128.png",
-    "galleryBanner": {
-        "color": "#84bd12",
-        "theme": "dark"
-    },
-    "homepage": "https://github.com/AkashGutha/vscode-greetings/blob/master/README.md",
-    "bugs": {
-        "url": "https://github.com/AkashGutha/vscode-greetings/issues"
-    },
-    "engines": {
-        "vscode": "^1.5.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "*"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "extension.greet",
-                "title": "Greet or Quote"
-            }
-        ]
-    },
-    "main": "./extension",
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.32",
-        "@types/node": "^6.0.40",
-        "eslint": "^3.6.0",
-        "mocha": "^2.3.3",
-        "typescript": "^2.0.3",
-        "unirest": "^0.5.1",
-        "vscode": "^1.0.0"
-    }
+  "name": "greetings",
+  "displayName": "Greetings and Quotes",
+  "description": "VSCode extension for greetings and quotes",
+  "version": "0.1.10",
+  "publisher": "AkashGutha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AkashGutha/vscode-greetings"
+  },
+  "icon": "images/Greeting-128.png",
+  "galleryBanner": {
+    "color": "#84bd12",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/AkashGutha/vscode-greetings/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/AkashGutha/vscode-greetings/issues"
+  },
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "GreetsnQuotes.greet",
+        "title": "Greet or Quote"
+      }
+    ]
+  },
+  "main": "./extension",
+  "scripts": {
+    "postinstall": "npm i && node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.32",
+    "@types/node": "^6.0.40",
+    "eslint": "^3.6.0",
+    "mocha": "^2.3.3",
+    "typescript": "^2.0.3",
+    "unirest": "^0.5.1",
+    "vscode": "^1.0.0"
+  },
+  "license": "MIT"
 }
