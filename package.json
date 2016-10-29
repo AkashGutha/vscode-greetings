@@ -2,7 +2,7 @@
     "name": "greetings",
     "displayName": "Greetings and Quotes",
     "description": "VSCode extension for greetings and quotes",
-    "version": "0.1.18",
+    "version": "0.1.20",
     "publisher": "AkashGutha",
     "repository": {
         "type": "git",
@@ -36,6 +36,7 @@
     },
     "main": "./extension",
     "scripts": {
+        "vscode:prepublish": "npm i && node ./node_modules/vscode/bin/install",
         "postinstall": "npm i && node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
