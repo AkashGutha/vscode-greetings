@@ -2,7 +2,7 @@
     "name": "greetings",
     "displayName": "Greetings and Quotes",
     "description": "VSCode extension for greetings and quotes",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "publisher": "AkashGutha",
     "repository": {
         "type": "git",
@@ -36,7 +36,7 @@
     },
     "main": "./extension",
     "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install"
+        "postinstall": "npm i && node ./node_modules/vscode/bin/install"
     },
     "devDependencies": {
         "unirest": "^0.5.1",
