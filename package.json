@@ -2,7 +2,7 @@
   "name": "greetings",
   "displayName": "Greetings and Quotes",
   "description": "VSCode extension for greetings and quotes",
-  "version": "0.1.10",
+  "version": "0.1.14",
   "publisher": "AkashGutha",
   "repository": {
     "type": "git",
@@ -36,14 +36,9 @@
   },
   "main": "./extension",
   "scripts": {
-    "postinstall": "npm i && node ./node_modules/vscode/bin/install"
+    "postinstall": "node ./node_modules/vscode/bin/install"
   },
   "devDependencies": {
-    "@types/mocha": "^2.2.32",
-    "@types/node": "^6.0.40",
-    "eslint": "^3.6.0",
-    "mocha": "^2.3.3",
-    "typescript": "^2.0.3",
     "unirest": "^0.5.1",
     "vscode": "^1.0.0"
   },
