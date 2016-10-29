@@ -2,7 +2,7 @@
     "name": "greetings",
     "displayName": "Greetings and Quotes",
     "description": "VSCode extension for greetings and quotes",
-    "version": "0.1.16",
+    "version": "0.1.18",
     "publisher": "AkashGutha",
     "repository": {
         "type": "git",
