@@ -1,50 +1,50 @@
 {
-    "name": "greetings",
-    "displayName": "Greetings and Quotes",
-    "description": "VSCode extension for greetings and quotes",
-    "version": "0.1.26",
-    "publisher": "AkashGutha",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/AkashGutha/vscode-greetings"
-    },
-    "icon": "images/Greeting-128.png",
-    "galleryBanner": {
-        "color": "#84bd12",
-        "theme": "dark"
-    },
-    "homepage": "https://github.com/AkashGutha/vscode-greetings/blob/master/README.md",
-    "bugs": {
-        "url": "https://github.com/AkashGutha/vscode-greetings/issues"
-    },
-    "engines": {
-        "vscode": "^1.5.0"
-    },
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "*"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "GreetsnQuotes.greet",
-                "title": "Greet or Quote"
-            }
-        ]
-    },
-    "main": "./extension",
-    "scripts": {
-        "publishPatch": "vsce publish patch && git add -A && git commit -m \"patch bump\" && git push",
-        "publishMinor": "vsce publish minor && git add -A && git commit -m \"patch bump\" && git push",
-        "postinstall": "node ./node_modules/vscode/bin/install"
-    },
-    "devDependencies": {
-        "vscode": "^1.0.0"
-    },
-    "license": "MIT",
-    "dependencies": {
-        "unirest": "^0.5.1"
-    }
+  "name": "greetings",
+  "displayName": "Greetings and Quotes",
+  "description": "VSCode extension for greetings and quotes",
+  "version": "0.1.26",
+  "publisher": "AkashGutha",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AkashGutha/vscode-greetings"
+  },
+  "icon": "images/Greeting-128.png",
+  "galleryBanner": {
+    "color": "#84bd12",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/AkashGutha/vscode-greetings/blob/master/README.md",
+  "bugs": {
+    "url": "https://github.com/AkashGutha/vscode-greetings/issues"
+  },
+  "engines": {
+    "vscode": "^1.5.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "GreetsnQuotes.greet",
+        "title": "Greet or Quote"
+      }
+    ]
+  },
+  "main": "./extension",
+  "scripts": {
+    "publishPatch": "vsce publish patch && git add -A && git commit -m \"patch bump\" && git push",
+    "publishMinor": "vsce publish minor && git add -A && git commit -m \"patch bump\" && git push",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "vscode": "^1.0.3"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "unirest": "^0.5.1"
+  }
 }
