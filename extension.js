@@ -19,7 +19,6 @@ let greetings = {
 // your extension is activated the very first time the command is executed
 function activate(context) {
   // register the command to be called from command palette.
-  vscode.window.showInformationMessage("activated");
   var greetCommand =
     vscode.commands.registerCommand('GreetsnQuotes.greet', greet());
 
@@ -27,7 +26,6 @@ function activate(context) {
   function greet() {
     // The code you place here will be executed every time your command is
     // executed
-    vscode.window.setStatusBarMessage("greet", 1000);
     let content = "";
     let dns = require('dns');
 
