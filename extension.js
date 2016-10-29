@@ -33,7 +33,7 @@ function activate(context) {
       if (err) {
         content = getRandom();
         // set status bar messgae
-        vscode.window.setStatusBarMessage(content, 30000);
+        vscode.window.setStatusBarMessage(content, 60000);
       } else {
         // These code snippets use an open-source library.
         // http://unirest.io/nodejs
@@ -52,7 +52,7 @@ function activate(context) {
               content = JSON.parse(result.body).quote;
 
             // set status bar messgae
-            vscode.window.setStatusBarMessage(content, 30000);
+            vscode.window.setStatusBarMessage(content, 60000);
           });
       }
     });
