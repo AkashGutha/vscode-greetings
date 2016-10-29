@@ -58,6 +58,7 @@ function activate(context) {
           });
       }
     });
+
   }
 
   context.subscriptions.push(greetCommand);
