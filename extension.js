@@ -29,6 +29,8 @@ function activate(context) {
     let content = "";
     let dns = require('dns');
 
+    // set message as loading for a better ux
+    vscode.window.setStatusBarMessage('Loading quote...');
     dns.resolve('www.google.com', function (err) {
       if (err) {
         content = getRandom();
