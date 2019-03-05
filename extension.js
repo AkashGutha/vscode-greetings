@@ -20,7 +20,7 @@ let greetings = {
 function activate(context) {
   // register the command to be called from command palette.
   var greetCommand =
-    vscode.commands.registerCommand('GreetsnQuotes.greet', greet());
+    vscode.commands.registerCommand('GreetsnQuotes.greet', greet);
 
   // greet function which gets the data and sets the status bar message.
   function greet() {
@@ -49,10 +49,9 @@ function activate(context) {
             if (typeof result.error === 'object')
               content = getRandom();
             else
-              content = JSON.parse(result.body).quote;
-
-            // set status bar messgae
-            vscode.window.setStatusBarMessage(content, 60000);
+              content = result.body[0].quote;
+            // set status bar message
+            vscode.window.setStatusBarMessage(content);
           });
       }
     });
